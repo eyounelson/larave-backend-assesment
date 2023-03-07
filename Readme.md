@@ -28,6 +28,62 @@ How would you refactor this code to remove the multi-level nested ifs
 ```
 
 
+two ways to Refactor code
+
+1.
+```php
+   function runOperations()
+        {
+            $error = null;
+
+            if (!SUCCEEDED(Operation1())) {
+               $error = OPERATION1FAILED;
+            }
+            if (!SUCCEEDED(Operation2())) {
+               $error = OPERATION2FAILED;
+            }
+            if (!SUCCEEDED(Operation3())) {
+               $error = OPERATION3FAILED;
+            }
+             if (!SUCCEEDED(Operation4())) {
+             $error = OPERATION4FAILED;
+            }
+            
+            return $error;
+        }
+```
+
+
+2.
+```php
+   function runOperations()
+        {
+            $error = null;
+
+          
+            switch ($error) {
+               case !SUCCEEDED(Operation1()):
+                  echo $error = OPERATION1FAILED;;
+                  break;
+               case !SUCCEEDED(Operation2()):
+                  echo $error = OPERATION2FAILED;;
+                  break;
+               case !SUCCEEDED(Operation3()):
+                  echo $error = OPERATION3FAILED;
+                  break;
+               case !SUCCEEDED(Operation4()):
+                  echo $error = OPERATION4FAILED;
+                  break;
+               default:
+                  echo return $error;
+                  break;
+            }
+            
+        }
+```
+
+
+
 ## Two
 The world as we know it has fallen into an apocalyptic scenario. A laboratory-made virus is transforming human beings and animals into zombies, hungry for fresh flesh.
 
